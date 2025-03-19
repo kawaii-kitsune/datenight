@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Night</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 2;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #fff;
+            
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            height: 150px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background 0.3s;
+        }
+        .box:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Date Night 💖</h1>
+    <p>Not sure what to do for date night? Click each box to let fate decide your perfect evening! 🍷✨</p>
+    <div class="grid">
+        <div class="box" onclick="randomize(0)">🍽️ What to Eat?</div>
+        <div class="box" onclick="randomize(1)">🎭 What to Do?</div>
+        <div class="box" onclick="randomize(2)">💑 What to Do After?</div>
+        <div class="box" onclick="randomize(3)"><img src="placeholder.jpg" alt="Sexy Time"></div>
+    </div>
+    
+    <script>
+        const options = [
+            ["🌮 Mexican", "🍕 Pizza", "🥡 Chinese", "🍔 Burger", "👩‍🍳 Cook dinner together", "🌟 Try something new"],
+            ["🎬 Watch a movie", "📚 Learn something new", "🚗 Go somewhere new", "🎮 Play games", "🔀 Choice of partners", "🛍️ Shopping"],
+            ["🤗 Snuggle", "🍨 Get dessert", "🚶‍♂️ Go for a walk", "☕ Get coffee", "💆‍♂️ Give each other a massage", "🍹 Get cocktails"],
+            ["https://svges.com/wp-content/uploads/2020/10/BlowMM-Logo.jpg", 
+             "https://cdn.vectopus.com/leremy/icons/80C91F27D0ED/851B4013DE7E/icons-icons-chair-gay-kamasutra-oral-sex-stick-figure-pictogram-256.png", 
+             "https://static.thenounproject.com/png/663238-512.png", 
+             "https://cdn.vectopus.com/leremy/icons/80C91F27D0ED/851B4013DE7E/icons-icons-gay-missionary-position-sex-sexual-stick-figure-pictogram-256.png", 
+             "https://png.pngtree.com/png-vector/20231115/ourmid/pngtree-your-choice-options-png-image_10585604.png"] // Image filenames
+        ];
+
+        function randomize(index) {
+            const boxes = document.querySelectorAll('.box');
+            if (index === 3) {
+                boxes[index].innerHTML = `<img src="${options[index][Math.floor(Math.random() * options[index].length)]}" alt="Sexy Time">`;
+            } else {
+                boxes[index].textContent = options[index][Math.floor(Math.random() * options[index].length)];
+            }
+        }
+    </script>
+</body>
+</html>
